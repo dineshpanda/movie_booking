@@ -1,0 +1,22 @@
+.row
+  .col-md-6.col-md-offset-3
+    %h2 Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
+      .form-group
+        = f.text_field :name, class: 'form-control', placeholder: 'Name'
+      .form-group
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+            %br/
+        = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password'
+      .form-group
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password'
+      .form-group
+        = f.select :gender, options_for_select(User.genders.keys)
+      .form-group
+        = f.submit "Sign up", class: 'btn btn-default'
+    = render "devise/shared/links"

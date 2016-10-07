@@ -1,0 +1,14 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{:href => "#"} MovieBooking
+    %ul.nav.navbar-nav
+      %li.active
+        = link_to 'Home', '#'#root_path
+      %li
+        = link_to 'Bookings', '#'
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        = link_to destroy_user_session_path do
+          %span.glyphicon.glyphicon-log-out
+          Logout
