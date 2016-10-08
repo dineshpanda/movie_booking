@@ -9,6 +9,6 @@
         = link_to 'Bookings', '#'
     %ul.nav.navbar-nav.navbar-right
       %li
-        = link_to destroy_user_session_path do
+        = link_to destroy_user_session_path, method: :delete do
           %span.glyphicon.glyphicon-log-out
           Logout

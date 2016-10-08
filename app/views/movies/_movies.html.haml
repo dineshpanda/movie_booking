@@ -1,0 +1,6 @@
+.col-sm-6.col-md-4
+  = link_to movie_path(movie) do
+    .thumbnail
+      .caption
+        %h3=movie.title
+        %p=movie.release_date
