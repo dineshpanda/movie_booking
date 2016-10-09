@@ -14,6 +14,11 @@
         =f.date_select :booking_at
         =f.select :booking_at, options_for_select(SHOW_TIMES.map {|st| [st.to_time.strftime('%I %p'), st.to_i] })
       .form-group
+        =f.label :coupon_id, 'Coupon Code'
+        =f.text_field :coupon_code, class: 'form-control'
+        = link_to 'Apply', '#', id: 'apply_coupon' ,class: 'btn btn-primary btn-sm'
+        %p#coupon_message
+      .form-group
         =f.submit 'Book', class: 'btn btn-default' if current_user.present?
         
    

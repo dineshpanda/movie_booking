@@ -7,12 +7,15 @@
         = link_to 'Cancel', booking_path(booking), method: :delete, data: {confirm: 'Are you sure to cancel your booking?'}, class: 'btn btn-danger btn-xs pull-right' if booking.cancellable?
   .panel-body
     .row
-      .col-md-4
+      .col-md-3
         %span.label.label-info
           Show time: #{booking_datetime(booking)}
-      .col-md-4
+      .col-md-3
         %p
           Theater: #{booking.theater.name}
-      .col-md-4
+      .col-md-3
         %p
           Ticket Fee: #{booking.amount}
+      .col-md-3
+        %p
+          Coupon: #{coupon_status(booking)}

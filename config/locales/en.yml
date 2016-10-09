@@ -27,3 +27,6 @@ en:
     past_date: 'You have selected a past date as your show time. Please select a correct show time'
     cancel_success: 'Your booking has been cancelled successfully'
     cancel_failure: 'Your booking cancellation request has been failed. Please try again'
+  coupon:
+    applied: 'Coupon applied successfully. You will get %{amount} discount'
+    invalid: 'Coupon is invalid'

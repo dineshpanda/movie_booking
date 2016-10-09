@@ -1,0 +1,5 @@
+<% if @coupon.present? %>
+  $('#coupon_message').html("<%= t('coupon.applied', amount: @coupon.amount.round(2)) %>");
+<% else %>
+  $('#coupon_message').html("<%= t('coupon.invalid') %>");
+<% end %>
