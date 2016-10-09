@@ -9,4 +9,6 @@
   %body
     = render layout_header
     .container
+      - flash.each do |k,v|
+        .alert{class: "alert-#{flash_type(k)}"}=v
       = yield

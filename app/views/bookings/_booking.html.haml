@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading
+    .row
+      .col-md-8
+        %h3.panel-title=booking.movie.title
+      .col-md-3
+        = link_to 'Cancel', booking_path(booking), method: :delete, data: {confirm: 'Are you sure to cancel your booking?'}, class: 'btn btn-danger btn-xs pull-right' if booking.cancellable?
+  .panel-body
+    .row
+      .col-md-4
+        %span.label.label-info
+          Show time: #{booking_datetime(booking)}
+      .col-md-4
+        %p
+          Theater: #{booking.theater.name}
+      .col-md-4
+        %p
+          Ticket Fee: #{booking.amount}

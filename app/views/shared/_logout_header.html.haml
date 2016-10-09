@@ -1,10 +1,10 @@
 %nav.navbar.navbar-inverse
   .container-fluid
     .navbar-header
-      %a.navbar-brand{:href => "#"} MovieBooking
+      = link_to 'MovieBooking', root_path, class: 'navbar-brand'
     %ul.nav.navbar-nav
       %li.active
-        = link_to 'Home', '#'
+        = link_to 'Home', root_path
     %ul.nav.navbar-nav.navbar-right
       %li
         = link_to new_user_session_path do

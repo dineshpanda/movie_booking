@@ -1,0 +1,11 @@
+%table.table
+  %tr
+    %td Ticket Fee
+    %td=movie.ticket_fee.round(2)
+  -if current_user && current_user.female?
+    %tr
+      %td Female Discount
+      %td=movie.female_discount(current_user)
+  %tr
+    %td Amount Payable
+    %td=movie.ticket_fee_with_discount(current_user)

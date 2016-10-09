@@ -1,2 +1,19 @@
-%h1 Movies#show
-%p Find me in app/views/movies/show.html.haml
+.row
+  .col-md-3
+    %p Movie: #{@movie.title}
+    %p Release Date: #{@movie.release_date}
+    #ticket_fee=render partial: 'ticket_fee', locals: {movie: @movie}
+  .col-md-6
+    =form_for @booking do |f|
+      =f.hidden_field :movie_id, value: @movie.id
+      .form-group
+        =f.label :theater_id,'Select Theater'
+        =f.select :theater_id, @movie.theaters.map { |theater| [theater.name, theater.id] }
+      .form-group
+        =f.label :booking_at, 'Select Show Time'
+        =f.date_select :booking_at
+        =f.select :booking_at, options_for_select(SHOW_TIMES.map {|st| [st.to_time.strftime('%I %p'), st.to_i] })
+      .form-group
+        =f.submit 'Book', class: 'btn btn-default' if current_user.present?
+        
+   

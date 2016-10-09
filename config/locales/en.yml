@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  booking:
+    success: 'Your booking has been accepted'
+    failure: 'Your booking has been declined. Please try again'
+    sold_out: 'Sorry, all tickets have been sold out. Please try with other show times'
+    past_date: 'You have selected a past date as your show time. Please select a correct show time'
+    cancel_success: 'Your booking has been cancelled successfully'
+    cancel_failure: 'Your booking cancellation request has been failed. Please try again'

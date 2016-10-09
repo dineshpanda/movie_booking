@@ -11,16 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008061109) do
+ActiveRecord::Schema.define(version: 20161009053027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "booking_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.integer  "theater_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal  "amount"
+  end
+
+  add_index "bookings", ["movie_id"], name: "index_bookings_on_movie_id", using: :btree
+  add_index "bookings", ["theater_id"], name: "index_bookings_on_theater_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.date     "release_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.decimal  "ticket_fee"
   end
 
   create_table "movies_theaters", id: false, force: :cascade do |t|
@@ -54,4 +69,7 @@ ActiveRecord::Schema.define(version: 20161008061109) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bookings", "movies"
+  add_foreign_key "bookings", "theaters"
+  add_foreign_key "bookings", "users"
 end

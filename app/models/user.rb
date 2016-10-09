@@ -4,5 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #associations
+  has_many :bookings
+
   enum gender: {male: 0, female: 1}
+
 end
